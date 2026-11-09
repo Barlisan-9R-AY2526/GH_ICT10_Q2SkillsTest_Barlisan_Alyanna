@@ -1,0 +1,202 @@
+/* ==========================================================
+   Nonmetal Element Finder
+   Palette:
+   --mint     #6BA2B3  pacific blue
+   --seafoam  #508991  pacific cyan
+   --teal     #28666C  stormy teal
+   --slate    #004346  dark teal
+   --navy     #172A3A  deep space blue
+   ========================================================== */
+
+/* Style reused from Seatwork */
+
+:root {
+  --pacific-blue: #6BA2B3;
+  --pacific-cyan: #508991;
+  --stormy-teal: #28666C;
+  --dark-teal: #004346;
+  --deep-space-blue: #172A3A;
+
+  --font-display: "Abril Fatface", Georgia, serif;
+  --font-body: "Clarity City", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ---------- Base ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  color: var(--deep-space-blue);
+  background: var(--pacific-blue);
+  line-height: 1.6;
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 1.5rem 7rem;
+  text-align: center;
+  color: var(--pacific-blue);
+  background: linear-gradient(160deg, var(--deep-space-blue) 0%, var(--dark-teal) 60%, var(--stormy-teal) 100%);
+}
+
+.hero h1 {
+  font-size: clamp(2.25rem, 6vw, 4.25rem);
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  color: #fff;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--pacific-cyan);
+}
+
+.hero .lede {
+  max-width: 34rem;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  color: var(--pacific-blue);
+  opacity: 0.92;
+}
+
+/* Repeating diamond pattern */
+.checkerboard-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    linear-gradient(45deg, var(--pacific-blue) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--pacific-blue) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--pacific-blue) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--pacific-blue) 75%);
+  background-size: 48px 48px;
+  background-position: 0 0, 0 24px, 24px -24px, -24px 0;
+}
+
+/* ---------- Finder card ---------- */
+.finder-card {
+  position: relative;
+  width: min(92%, 36rem);
+  margin: -3.5rem auto 3rem;
+  padding: 2rem 2rem 2.25rem;
+  background: #fff;
+  border: 2px solid var(--pacific-cyan);
+  border-radius: 1rem;
+  box-shadow: 0 12px 32px rgba(23, 42, 58, 0.18);
+}
+
+.finder-label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--dark-teal);
+  background: var(--pacific-blue);
+  border-radius: 999px;
+}
+
+.finder-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.25rem;
+  color: var(--deep-space-blue);
+}
+
+/* ---------- Input ---------- */
+.sea-input {
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  color: var(--deep-space-blue);
+  background: #f7fbf7;
+  border: 2px solid var(--pacific-cyan);
+  border-radius: 0.6rem;
+}
+
+.sea-input::placeholder {
+  color: var(--stormy-teal);
+  opacity: 0.7;
+}
+
+.sea-input:focus {
+  color: var(--deep-space-blue);
+  background: #fff;
+  border-color: var(--stormy-teal);
+  box-shadow: 0 0 0 0.25rem rgba(40, 102, 108, 0.3);
+  outline: none;
+}
+
+/* ---------- Button ---------- */
+.btn-sea {
+  margin-top: 1rem;
+  padding: 0.7rem 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--dark-teal);
+  border: 2px solid var(--dark-teal);
+  border-radius: 0.6rem;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.btn-sea:hover {
+  color: var(--deep-space-blue);
+  background: var(--pacific-cyan);
+  border-color: var(--pacific-cyan);
+}
+
+.btn-sea:focus-visible {
+  outline: 3px solid var(--stormy-teal);
+  outline-offset: 3px;
+}
+
+.btn-sea:active {
+  background: var(--deep-space-blue);
+  border-color: var(--deep-space-blue);
+  color: #fff;
+}
+
+/* ---------- Output ---------- */
+#output1 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--deep-space-blue);
+}
+
+#output1:not(:empty) {
+  padding: 1rem 1.25rem;
+  background: var(--pacific-blue);
+  border-left: 5px solid var(--stormy-teal);
+  border-radius: 0.5rem;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: auto;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--pacific-blue);
+  background: var(--deep-space-blue);
+}
+
+/* ---------- Small screens & motion ---------- */
+@media (max-width: 576px) {
+  .hero { padding: 3.5rem 1.25rem 6rem; }
+  .finder-card { padding: 1.5rem 1.25rem 1.75rem; }
+  .btn-sea { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
